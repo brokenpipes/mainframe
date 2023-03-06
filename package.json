@@ -3,7 +3,7 @@
   "private": "true",
   "scripts": {
     "build:css": "tailwindcss -i app/assets/stylesheets/application.css -o app/assets/builds/application.css",
-    "build:js": "esbuild --bundle --outfile=app/assets/builds/application.js --watch app/javascript/application.js"
+    "build:javascript": "esbuild --bundle --outfile=app/assets/builds/application.js --watch app/javascript/application.js"
   },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",

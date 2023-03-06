@@ -48,3 +48,6 @@ rbi:
 
 static.css:
 	yarn run build:css --watch
+
+static.javascript:
+	yarn run build:javascript --watch
