@@ -1,0 +1,71 @@
+require:
+  - rubocop-capybara
+  - rubocop-rails
+  - rubocop-sorbet
+
+AllCops:
+  Exclude:
+    - bin/**/*
+  NewCops: enable
+
+Bundler/InsecureProtocolSource:
+  AllowHttpProtocol: false
+  Severity: error
+
+Bundler/OrderedGems:
+  Enabled: true
+
+Layout/LineLength:
+  Exclude:
+    - sorbet/tapioca/require.rb
+  Max: 88
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Rails/ActionOrder:
+  Enabled: false
+
+Sorbet/EnforceSignatures:
+  Enabled: true
+
+Sorbet/FalseSigil:
+  Enabled: false
+
+Sorbet/HasSigil:
+  MinimumStrictness: strict
+  Exclude:
+    - sorbet/
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: comma

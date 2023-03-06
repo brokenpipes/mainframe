@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+require "debug"
+require "optparse"
+require_relative "../config/environment"
+
+PROJECT_ROOT = File.expand_path(File.dirname(File.dirname(__FILE__)))
+
+PROJECT_FILES = Dir.glob("#{PROJECT_ROOT}/**/*", File::FNM_DOTMATCH).reject do |filepath|
+  File.directory?(filepath) ||
+    filepath == "." ||
+    filepath == ".." ||
+    filepath == "#{PROJECT_ROOT}/bin/rename-project" ||
+    filepath.start_with?("#{PROJECT_ROOT}/.git") ||
+    filepath.start_with?("#{PROJECT_ROOT}/tmp")
+end
+
+options = {}
+parser = OptionParser.new do |opts|
+  opts.banner = "Usage: bin/rename-project [options]"
+
+  opts.on("-n", "--name PROJECT_NAME", "New project name") do |value|
+    options[:name] = value
+  end
+end
+parser.parse!
+
+if options[:name].nil?
+  puts(parser.to_a)
+
+  exit(1)
+end
+
+lowercase_name = options[:name].downcase
+classified_name = lowercase_name.classify
+
+PROJECT_FILES.each do |filepath|
+  puts(filepath.methods.sort - Object.methods) if filepath == "#{PROJECT_ROOT}/app"
+
+  file_contents = File.read(filepath)
+  file_contents.gsub!("criminal", lowercase_name)
+  file_contents.gsub!("Criminal", classified_name)
+  File.write(filepath, file_contents)
+
+  original_filepath = filepath
+  new_filepath = filepath
+  new_filepath.gsub!("criminal", lowercase_name)
+  new_filepath.gsub!("Criminal", classified_name)
+
+  File.rename(original_filepath, new_filepath)
+end

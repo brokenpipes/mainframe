@@ -1,0 +1,84 @@
+.pagination {
+	@apply inline-flex;
+	@apply isolate;
+	@apply rounded-md;
+	@apply shadow-sm;
+	@apply -space-x-px;
+}
+
+.pagination .page {
+	@apply font-semibold;
+	@apply inline-flex;
+	@apply items-center;
+	/*@apply px-4;*/
+	/*@apply py-2;*/
+	@apply relative;
+	@apply ring-1;
+	@apply ring-inset;
+	@apply ring-gray-300;
+	@apply text-gray-900;
+	@apply text-sm;
+
+	@apply focus:z-20;
+	@apply focus:outline-offset-0;
+
+	@apply hover:bg-gray-50;
+}
+
+.pagination .page a {
+	@apply px-4;
+	@apply py-2;
+}
+
+.pagination .page.active {
+	@apply bg-indigo-600;
+	@apply px-4;
+	@apply py-2;
+	@apply ring-0;
+	@apply text-white;
+	@apply z-10;
+
+	@apply focus-visible:outline;
+	@apply focus-visible:outline-2;
+	@apply focus-visible:outline-offset-2;
+	@apply focus-visible:outline-indigo-600;
+
+	@apply hover:bg-indigo-600;
+}
+
+.pagination .page.gap {
+	@apply px-4;
+	@apply py-2;
+	@apply text-gray-700;
+}
+
+.pagination .page.next {
+	@apply rounded-r-md;
+	@apply text-gray-400;
+}
+
+.pagination .page.next.disabled {
+	@apply px-2;
+}
+
+.pagination .page.next a {
+	@apply px-2;
+}
+
+.pagination .page.prev {
+	@apply rounded-l-md;
+	@apply text-gray-400;
+}
+
+.pagination .page.prev.disabled {
+	@apply px-2;
+}
+
+.pagination .page.prev a {
+	@apply px-2;
+}
+
+.pagy-info {
+	@apply text-gray-700;
+	@apply text-sm;
+}

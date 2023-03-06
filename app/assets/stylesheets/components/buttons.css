@@ -1,0 +1,36 @@
+.button {
+	@apply bg-white;
+	@apply block;
+	@apply font-semibold;
+	@apply px-3;
+	@apply py-2;
+	@apply rounded-md;
+	@apply shadow-sm;
+	@apply text-center;
+	@apply text-gray-900;
+	@apply text-sm;
+
+	@apply focus-visible:outline;
+	@apply focus-visible:outline-2;
+	@apply focus-visible:outline-offset-2;
+
+	@apply hover:bg-gray-50;
+}
+
+.button.button-black {
+	@apply bg-black;
+	@apply text-white;
+
+	@apply focus-visible:outline-black;
+
+	@apply hover:bg-gray-800;
+}
+
+.button.button-blue {
+	@apply bg-blue-600;
+	@apply text-white;
+
+	@apply focus-visible:outline-blue-600;
+
+	@apply hover:bg-blue-500;
+}

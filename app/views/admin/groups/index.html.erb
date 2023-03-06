@@ -1,0 +1,110 @@
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <div class="mt-12 px-4 sm:px-6 lg:px-8">
+    <div class="sm:flex sm:items-center">
+      <div class="sm:flex-auto">
+        <h1 class="text-base font-semibold leading-6 text-gray-900">Groups</h1>
+        <p class="mt-2 text-sm text-gray-700">A list of all the groups users can be assigned to.</p>
+      </div>
+      <div class="mt-4 sm:mt-0 sm:ml-16 sm:flex-none">
+        <button type="button" class="button button-blue">
+          Add group
+        </button>
+      </div>
+    </div>
+    <div class="mt-8 flow-root">
+      <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+          <% if @groups.present? %>
+            <div class="min-w-full divide-y divide-gray-300">
+              <div class="flex">
+                <div class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0 w-48">
+                  Name
+                </div>
+
+                <div class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900 flex-1">
+                  Description
+                </div>
+
+                <div class="py-3.5 px-3 text-sm font-semibold text-gray-900 text-center w-24">
+                  Roles
+                </div>
+
+                <div class="py-3.5 pl-3 py-4 text-sm font-semibold text-gray-900 text-center w-24">
+                  Users
+                </div>
+              </div>
+
+              <div class="divide-y divide-gray-200">
+                <% @groups.each do |group| %>
+                  <div class="flex">
+                    <div class="py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0 w-48">
+                      <a class="hover:underline" href="#"><%= group.name %></a>
+                    </div>
+
+                    <div class="py-4 px-3 text-sm text-gray-500 flex-1">
+                      <% if group.description.present? %>
+                        <%= group.description %>
+                      <% else %>
+                        No description given.
+                      <% end %>
+                    </div>
+
+                    <div class="py-4 px-3 text-sm text-gray-500 w-24 text-center">0</div>
+                    <div class="py-4 px-3 text-sm text-gray-500 w-24 text-center">0</div>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+
+<!--            <table class="min-w-full divide-y divide-gray-300">-->
+<!--              <thead>-->
+<!--              <tr>-->
+<!--                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-0">Name</th>-->
+<!--                <th scope="col" class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">Description</th>-->
+<!--                <th scope="col" class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">Roles</th>-->
+<!--                <th scope="col" class="py-3.5 px-3 text-left text-sm font-semibold text-gray-900">Users</th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody class="divide-y divide-gray-200">-->
+                <%# @groups.each do |group| %>
+<!--                  <tr>-->
+<!--                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-0">-->
+<!--                      <a class="hover:underline" href="#"><%#= group.name %></a>-->
+<!--                    </td>-->
+
+<!--                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-500">-->
+                      <%# if group.description.present? %>
+                        <%#= group.description %>
+                      <%# else %>
+<!--                        No description given.-->
+                      <%# end %>
+<!--                    </td>-->
+
+<!--                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-500">0</td>-->
+<!--                    <td class="whitespace-nowrap py-4 px-3 text-sm text-gray-500">0</td>-->
+<!--                  </tr>-->
+                <%# end %>
+
+<!--                More people... -->
+<!--              </tbody>-->
+<!--            </table>-->
+
+            <div class="flex items-center justify-between border-t border-gray-200 bg-white py-5">
+              <div>
+                <%== pagy_info(@pagy) %>
+              </div>
+
+              <div>
+                <%== pagy_nav(@pagy) %>
+              </div>
+            </div>
+          <% else %>
+            <p class="border-t border-t-gray-300 pt-12 text-center text-gray-500 text-sm">
+              No groups have been created yet.
+            </p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
